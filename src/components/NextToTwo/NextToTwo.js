@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 class NextButton extends Component {
 
   goToNextPage = () => {
-    this.props.history.push('/customerinfo');
+    this.props.history.push('/pagetwo');
   }
 
   render() {

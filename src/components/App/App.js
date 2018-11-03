@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Route} from 'react-router-dom';
-import PageOne from '../PageOne/PageOne';
+// import { HashRouter as Router, Route} from 'react-router-dom';
+// import PageOne from '../PageOne/PageOne';
+import AdminPage from '../AdminPage/AdminPage';
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ componentDidMount() {
 getFeedback = () => {
     axios.get('/feedback')
       .then( (response) => {
+        console.log(response.data);      
 // dispatching to getFeedbackReducer
         this.props.dispatch( {type: 'SET_FEEDBACK', payload: response.data} );
       })
@@ -31,12 +33,7 @@ getFeedback = () => {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
-         <Router>
-        <div className="App">
-          <Route exact path="/" component={PageOne} />
-        </div>
-      </Router>
-        
+          <AdminPage />
         <br/>
       </div>
     );
