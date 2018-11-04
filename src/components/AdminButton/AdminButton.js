@@ -3,13 +3,13 @@ import {withRouter} from 'react-router-dom';
 
 class AdminButton extends Component {
 
-  goToNextPage = () => {
-    this.props.history.push('/topageadmin');
+  goToNextPageSix = () => {
+    this.props.history.push('/6/topageadmin');
   }
 
   render() {
     return (
-      <button onClick={this.goToNextPage}>Adimin</button>
+      <button onClick={this.goToNextPageSix}>Adimin</button>
     )
   }
 }
