@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
-// import { HashRouter as Router, Route} from 'react-router-dom';
-// import PageOne from '../PageOne/PageOne';
+import PageOne from '../PageOne/PageOne';
+import PageTwo from '../PageTwo/PageTwo';
+import PageThree from '../PageThree/PageThree';
+import PageFour from '../PageFour/PageFour';
+import PageFive from '../PageFive/PageFive'
 import AdminPage from '../AdminPage/AdminPage';
+import { HashRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
 
@@ -32,9 +36,18 @@ getFeedback = () => {
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
+
         </header>
-          <AdminPage />
-        <br/>
+          <Router>
+        <div>
+          <Route exact path="/" component={PageOne} />
+          <Route path="/topagetwo" component={PageTwo} />
+          <Route path="/topagethree" component={PageThree} />
+          <Route path="/topagefour" component={PageFour} />
+          <Route path="/topagefive" component={PageFive} />
+          <Route path="/topageadmin" component={AdminPage} />
+        </div>
+      </Router> 
       </div>
     );
   }

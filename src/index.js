@@ -10,7 +10,7 @@ import logger from 'redux-logger';
 // getFeedbackReducer recives and stores state from app.js from the server
 const getFeedbackReducer = (state = [], action) => {
     if (action.type === 'SET_FEEDBACK') {
-        console.log(`The person was ${action.payload}`);
+        console.log(`The feedback was ${action.payload}`);
         state = action.payload;
     }
     return state;

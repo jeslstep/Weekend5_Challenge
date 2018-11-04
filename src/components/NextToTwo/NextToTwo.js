@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 
-class NextButton extends Component {
+class NexttoTwo extends Component {
 
-  goToNextPage = () => {
-    this.props.history.push('/pagetwo');
+ // connects and moves user to page two
+  goToNextPage2 = () => {
+    this.props.history.push('/topagetwo');
   }
 
   render() {
     return (
-      <button onClick={this.goToNextPage}>NEXT</button>
+      <button onClick={this.goToNextPage2}>NEXT</button>
     )
   }
 }
 
-export default withRouter(NextButton);
+export default withRouter(NexttoTwo);

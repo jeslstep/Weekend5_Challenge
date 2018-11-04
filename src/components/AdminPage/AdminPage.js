@@ -10,9 +10,10 @@ class AdminPage extends Component {
     return (
       <div>
           <h1>Admin Page</h1>
-   {/* looping through the feedback from redux     */}
+   {/* looping through the feedback from redux */}
         {this.props.reduxState.getFeedbackReducer.map( feedback => (
             <div id="card" key={feedback.id}>
+{ /* displaying in table */ }
             <table>
                 <thead>
                     <tr>
@@ -26,6 +27,8 @@ class AdminPage extends Component {
                     <td>{feedback.id}</td><td>{feedback.feeling}</td><td>{feedback.understanding}</td>
                     <td>{feedback.support}</td><td>{feedback.comments}</td><td>{feedback.flagged}</td>
                     <td>{feedback.date}</td>
+{ /* button to delete corresponding table row*/ }
+                    <td><button>Delete</button></td>
                     </tr>
                 </tbody>
             </table>        
@@ -34,10 +37,10 @@ class AdminPage extends Component {
       </div>
     );
   }
-}const mapReduxStateToProps = (reduxState) => {
-  return {reduxState};
 }
 
-
+const mapReduxStateToProps = (reduxState) => {
+  return {reduxState};
+}
 
 export default connect(mapReduxStateToProps)(AdminPage);
