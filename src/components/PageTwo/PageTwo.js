@@ -8,14 +8,13 @@ import {withRouter} from 'react-router-dom';
 class PageTwo extends Component {
 
 // Local state to store first feedback input
-  state = understandingRating;
+  state = '';
 
 // Sets local state 
    handleChange = (event) => {
       this.setState({
          [event.target.name]: event.target.value,
       });
-      this.handleSubmit();
    }
 
    handleSubmit = (event) => {
@@ -30,7 +29,7 @@ class PageTwo extends Component {
 
 // Clears the feild
     clearField = () => {
-        this.setState(understandingRating);
+        this.setState('');
     }
 
 
@@ -43,7 +42,7 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label="Rate Understanding of 1-10"
-          value={feelingRating}
+          value={this.state}
           onChange={this.props.handleChange(feedback)}
           margin="normal"
         /> 

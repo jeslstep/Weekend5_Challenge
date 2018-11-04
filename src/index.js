@@ -10,8 +10,17 @@ import logger from 'redux-logger';
 // getFeedbackReducer recives and stores state from app.js from the server
 const getFeedbackReducer = (state = [], action) => {
     if (action.type === 'SET_FEEDBACK') {
-        console.log(`The feedback was ${action.payload}`);
+        console.log(`The currently stored feedback is ${action.payload}`);
         state = action.payload;
+    }
+    return state;
+};
+
+// addFeedbackReducer recives and stores state from page components one-four via dispatch
+const addFeedbackReducer = (state = [], action) => {
+    if (action.type === 'ADD_FEEDBACK') {
+        console.log(`The feedback sumbitted was ${action.payload}`);
+         state = [...state, action.payload];
     }
     return state;
 };
@@ -21,6 +30,7 @@ const getFeedbackReducer = (state = [], action) => {
 const storeInstance = createStore(
     combineReducers({
         getFeedbackReducer,
+        addFeedbackReducer
         
     }),
     applyMiddleware(logger)
