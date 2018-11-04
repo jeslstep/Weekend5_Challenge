@@ -42,8 +42,8 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label = "Comments"
-          value={this.state}
-          onChange={this.props.handleChange(feedback)}
+          value={this.state.feedback.comments}
+          onChange={this.handleChange(feedback.comments)}
           margin="normal"
         /> 
 { /* moves user to page and dispathes rating 2*/ }

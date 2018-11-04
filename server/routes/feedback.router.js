@@ -14,6 +14,23 @@ router.get('/', (req, res) => {
             console.log('error', error);
             res.sendStatus(500);
         })
-}); // END GET Route
+}); 
+
+// POST Route
+router.post('/', (req, res) => {
+    let feedbackObj = req.body;
+    console.log(feedbackObj);
+    let sqlText = `INSERT INTO feedback (feeling, understanding, support, commenmts) 
+    VALUES ($1, $2, $3, $4);`
+    pool.query(sqlText, [feedbackObj.feeling, feedbackObj.understanding, feedbackObj.support, feedbackObj.comments])
+        .then((result) => {
+            console.log(result);
+            res.send(feedbackObj);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;

@@ -42,8 +42,8 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label="Rate Understanding of 1-10"
-          value={this.state}
-          onChange={this.props.handleChange(feedback)}
+          value={this.state.feedback.understanding}
+          onChange={this.handleChange(feedback.understanding)}
           margin="normal"
         /> 
 { /* moves user to page and dispathes rating 2*/ }
