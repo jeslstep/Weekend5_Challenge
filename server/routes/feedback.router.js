@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let feedbackObj = req.body;
     console.log(feedbackObj);
-    let sqlText = `INSERT INTO feedback (feeling, understanding, support, commenmts) 
+    let sqlText = `INSERT INTO feedback (feeling, understanding, support, comments) 
     VALUES ($1, $2, $3, $4);`
     pool.query(sqlText, [feedbackObj.feeling, feedbackObj.understanding, feedbackObj.support, feedbackObj.comments])
         .then((result) => {

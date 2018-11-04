@@ -22,9 +22,7 @@ class PageTwo extends Component {
        data: feedback
      }).then(response => {
        this.getFeedback();
-      //  this.props.dispatch({
-      //    type: 'CLEAR_STATE'
-      //  });
+// may need to clear redux state here
      }).catch(error => {
        alert('Error', error);
      })
@@ -45,18 +43,11 @@ class PageTwo extends Component {
       console.log(this.state);
 // Dispatching to addFeedbackReducer
       this.props.dispatch( { type: 'ADD__Feedback', payload: this.state } )
-      this.clearField();
 // uses the addFeedback post request function in App.js to send feedback to server
       this.addFeedback();
 // Moves user to the next
       this.props.history.push('/5');
    }
-
-// Clears the feild
-    clearField = () => {
-        this.setState(emptyCommments);
-    }
-
 
   render() {
     return (
@@ -67,7 +58,6 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label= "Comments"
-          // value={this.state.comments}
           onChange={this.handleChange}
           margin="normal"
         /> 

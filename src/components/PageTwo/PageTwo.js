@@ -26,15 +26,10 @@ class PageTwo extends Component {
       console.log(this.state);
 // Dispatching to addFeedbackReducer
       this.props.dispatch( { type: 'ADD__Feedback', payload: this.state } )
-      this.clearField();
 // Moves user to the next
       this.props.history.push('/3');
    }
 
-// Clears the feild
-    clearField = () => {
-        this.setState(emptyUnderstanding);
-    }
 
 
   render() {
@@ -46,7 +41,6 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label="Rate Understanding of 1-10"
-        //   value={this.state.understanding}
           onChange={this.handleChange}
           margin="normal"
         /> 

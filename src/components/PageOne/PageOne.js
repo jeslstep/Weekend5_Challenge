@@ -28,16 +28,9 @@ class PageOne extends Component {
       console.log(this.state);
 // Dispatching to addFeedbackReducer
       this.props.dispatch( { type: 'ADD_FEEDBACK', payload: this.state } )
-      this.clearField();
 // Moves user to the next
       this.props.history.push('/2');
    }
-
-// Clears the feild
-    clearField = () => {
-        this.setState(emptyFeeling);
-    }
-
 
   render() {
     return (
@@ -50,7 +43,6 @@ class PageOne extends Component {
         <TextField
           id="standard-name"
           label="Rate Feeling of 1-10"
-        //   value={this.state.feeling}
           onChange={this.handleChange}
           margin="normal"
         /> 
