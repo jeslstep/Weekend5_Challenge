@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class AdminButton extends Component {
 
@@ -9,7 +10,7 @@ class AdminButton extends Component {
 
   render() {
     return (
-      <button onClick={this.goToNextPageSix}>Adimin</button>
+      <Button varient="contained" color="secondary"  onClick={this.goToNextPageSix}>Adimin</Button>
     )
   }
 }

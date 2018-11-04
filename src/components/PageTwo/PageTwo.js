@@ -46,7 +46,7 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label="Rate Understanding of 1-10"
-          value={this.state.understanding}
+        //   value={this.state.understanding}
           onChange={this.handleChange}
           margin="normal"
         /> 

@@ -46,12 +46,12 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label= "Comments"
-          value={this.state.comments}
+          // value={this.state.comments}
           onChange={this.handleChange}
           margin="normal"
         /> 
 { /* moves user to the next page, dispathes comments feedback, posts to server*/ }
-       <Button varient="contained" color="primary" type="submit">NEXT</Button>
+       <Button varient="contained" color="primary" type="submit">Submit Feedback</Button>
      </form>
       </div>
     );

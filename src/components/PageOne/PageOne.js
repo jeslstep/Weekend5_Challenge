@@ -42,6 +42,7 @@ class PageOne extends Component {
   render() {
     return (
         <div>
+             <br/>
        <AdminButton /> 
         <h2>How are you feeling today?</h2>
 { /* user input for feedback question 1 */ }
@@ -49,7 +50,7 @@ class PageOne extends Component {
         <TextField
           id="standard-name"
           label="Rate Feeling of 1-10"
-          value={this.state.feeling}
+        //   value={this.state.feeling}
           onChange={this.handleChange}
           margin="normal"
         /> 
