@@ -31,24 +31,7 @@ getFeedback = () => {
       })
   }
 
-// POST request addFeedback sends feedback to server, called on PageFour
-  addFeedback = (event) => {
-     event.preventDefault();
-      let feedback = [...this.props.reduxState.addFeedbackReducer, this.state.feeling, 
-        this.state.understanding, this.state.support, this.state.comments]
-     axios({
-       method: 'POST',
-       url: '/feedback',
-       data: feedback
-     }).then(response => {
-       this.getFeedback();
-       this.props.dispatch({
-         type: 'CLEAR_STATE'
-       });
-     }).catch(error => {
-       alert('Error', error);
-     })
-   }
+
 
   render() {
     return (
@@ -65,10 +48,10 @@ getFeedback = () => {
           <Route path="/3" component={PageThree} />
         </Router>
         <Router>
-          <Route path="/4" component={PageFour} />
+          <Route  path="/4" component={PageFour} />
         </Router>
         <Router>
-          <Route addFeedback={this.addFeedback} path="/5" component={PageFive} />
+          <Route path="/5" component={PageFive} />
         </Router>
         <Router>
           <Route path="/6" component={AdminPage} />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {withRouter} from 'react-router-dom';
@@ -10,6 +11,24 @@ const emptyCommments = {
 };
 
 class PageTwo extends Component {
+
+  // POST request addFeedback sends feedback to server, called on PageFour
+  addFeedback = (event) => {
+      let feedback = [...this.props.reduxState.addFeedbackReducer, this.state.feeling, 
+        this.state.understanding, this.state.support, this.state.comments]
+     axios({
+       method: 'POST',
+       url: '/feedback',
+       data: feedback
+     }).then(response => {
+       this.getFeedback();
+      //  this.props.dispatch({
+      //    type: 'CLEAR_STATE'
+      //  });
+     }).catch(error => {
+       alert('Error', error);
+     })
+   }
 
 // Local state to store first feedback input
   state = emptyCommments;
@@ -28,7 +47,7 @@ class PageTwo extends Component {
       this.props.dispatch( { type: 'ADD__Feedback', payload: this.state } )
       this.clearField();
 // uses the addFeedback post request function in App.js to send feedback to server
-      this.props.addFeedback();
+      this.addFeedback();
 // Moves user to the next
       this.props.history.push('/5');
    }
