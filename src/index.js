@@ -16,12 +16,19 @@ const getFeedbackReducer = (state = [], action) => {
     return state;
 };
 
-// addFeedbackReducer recives and stores state from page components one-four via dispatch
+// addFeedbackReducer adds and deletes 
 const addFeedbackReducer = (state = [], action) => {
+// recives and stores state from page components one-four via dispatch
     if (action.type === 'ADD_FEEDBACK') {
         console.log(`The feedback sumbitted was ${action.payload}`);
          state = [...state, action.payload];
-    }
+// recives feedback to delete and removes it via dispatch
+    } else if ( action.type === 'DELETE_FEEDBACK' ) {
+    console.log('The feedback deleted was', state, action.payload);
+    const feedbackToDelete = action.payload;
+    const matchFeedback = feedback => feedback.idNumber !== feedbackToDelete.idNumber;
+    state = state.filter(matchFeedback);
+  }
     return state;
 };
 

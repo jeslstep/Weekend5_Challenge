@@ -28,7 +28,9 @@ class AdminPage extends Component {
                     <td>{feedback.support}</td><td>{feedback.comments}</td><td>{feedback.flagged}</td>
                     <td>{feedback.date}</td>
 { /* button to delete corresponding table row*/ }
-                    <td><button>Delete</button></td>
+                    <td><button onClick={() => {this.props.dispatch( 
+                      { type: 'DELETE_FEEDBACK', payload: feedback } )} 
+                      }>Delete</button></td>
                     </tr>
                 </tbody>
             </table>        

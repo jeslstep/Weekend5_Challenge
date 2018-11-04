@@ -27,6 +27,8 @@ class PageTwo extends Component {
 // Dispatching to addFeedbackReducer
       this.props.dispatch( { type: 'ADD__Feedback', payload: this.state } )
       this.clearField();
+// uses the addFeedback post request function in App.js to send feedback to server
+      this.props.addFeedback();
 // Moves user to the next
       this.props.history.push('/5');
    }
