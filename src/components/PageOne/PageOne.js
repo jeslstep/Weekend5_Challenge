@@ -5,11 +5,16 @@ import AdminButton from '../AdminButton/AdminButton';
 import TextField from '@material-ui/core/TextField';
 import {withRouter} from 'react-router-dom';
 
+// declare object to hold feeling feedback
+const emptyFeeling= {
+    feeling: '',
+};
+
 
 class PageOne extends Component {
 
 // Local state to store first feedback input
-  state = '';
+  state = emptyFeeling;
 
 // Sets local state 
    handleChange = (event) => {
@@ -25,12 +30,12 @@ class PageOne extends Component {
       this.props.dispatch( { type: 'ADD_FEEDBACK', payload: this.state } )
       this.clearField();
 // Moves user to the next
-      this.props.history.push('/2/topagetwo');
+      this.props.history.push('/2');
    }
 
 // Clears the feild
     clearField = () => {
-        this.setState('');
+        this.setState(emptyFeeling);
     }
 
 
@@ -44,8 +49,8 @@ class PageOne extends Component {
         <TextField
           id="standard-name"
           label="Rate Feeling of 1-10"
-          value={this.state.feedback.feeling}
-          onChange={this.handleChange(feedback.feeling)}
+          value={this.state.feeling}
+          onChange={this.handleChange}
           margin="normal"
         /> 
 { /* moves user to page and dispathes rating 2*/ }

@@ -4,11 +4,15 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {withRouter} from 'react-router-dom';
 
+// declare object to hold support feedback
+const emptySupport = {
+    support: '',
+};
 
 class PageTwo extends Component {
 
 // Local state to store first feedback input
-  state = '';
+  state = emptySupport;
 
 // Sets local state 
    handleChange = (event) => {
@@ -24,12 +28,12 @@ class PageTwo extends Component {
       this.props.dispatch( { type: 'ADD__FEEDBACK', payload: this.state } )
       this.clearField();
 // Moves user to the next
-      this.props.history.push('/4/topagefour');
+      this.props.history.push('/4');
    }
 
 // Clears the feild
     clearField = () => {
-        this.setState('');
+        this.setState(emptySupport);
     }
 
 
@@ -42,8 +46,8 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label="Rate Support of 1-10"
-          value={this.state.feedback.support}
-          onChange={this.handleChange(feedback.support)}
+          value={this.state.support}
+          onChange={this.handleChange}
           margin="normal"
         /> 
 { /* moves user to page and dispathes rating 2*/ }

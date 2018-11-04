@@ -4,11 +4,15 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {withRouter} from 'react-router-dom';
 
+// declare object to hold comments feedback
+const emptyCommments = {
+  comments: '',
+};
 
 class PageTwo extends Component {
 
 // Local state to store first feedback input
-  state = '';
+  state = emptyCommments;
 
 // Sets local state 
    handleChange = (event) => {
@@ -24,12 +28,12 @@ class PageTwo extends Component {
       this.props.dispatch( { type: 'ADD__Feedback', payload: this.state } )
       this.clearField();
 // Moves user to the next
-      this.props.history.push('/5/topagefive');
+      this.props.history.push('/5');
    }
 
 // Clears the feild
     clearField = () => {
-        this.setState('');
+        this.setState(emptyCommments);
     }
 
 
@@ -41,12 +45,12 @@ class PageTwo extends Component {
     <form onSubmit={this.handleSubmit}>
         <TextField
           id="standard-name"
-          label = "Comments"
-          value={this.state.feedback.comments}
-          onChange={this.handleChange(feedback.comments)}
+          label= "Comments"
+          value={this.state.comments}
+          onChange={this.handleChange}
           margin="normal"
         /> 
-{ /* moves user to page and dispathes rating 2*/ }
+{ /* moves user to the next page, dispathes comments feedback, posts to server*/ }
        <Button varient="contained" color="primary" type="submit">NEXT</Button>
      </form>
       </div>

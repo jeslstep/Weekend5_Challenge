@@ -4,11 +4,15 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {withRouter} from 'react-router-dom';
 
+// declare object to hold understanding feedback
+const emptyUnderstanding = {
+    understanding: '',
+};
 
 class PageTwo extends Component {
 
 // Local state to store first feedback input
-  state = '';
+  state = emptyUnderstanding;
 
 // Sets local state 
    handleChange = (event) => {
@@ -24,12 +28,12 @@ class PageTwo extends Component {
       this.props.dispatch( { type: 'ADD__Feedback', payload: this.state } )
       this.clearField();
 // Moves user to the next
-      this.props.history.push('/3/topagethree');
+      this.props.history.push('/3');
    }
 
 // Clears the feild
     clearField = () => {
-        this.setState('');
+        this.setState(emptyUnderstanding);
     }
 
 
@@ -42,8 +46,8 @@ class PageTwo extends Component {
         <TextField
           id="standard-name"
           label="Rate Understanding of 1-10"
-          value={this.state.feedback.understanding}
-          onChange={this.handleChange(feedback.understanding)}
+          value={this.state.understanding}
+          onChange={this.handleChange}
           margin="normal"
         /> 
 { /* moves user to page and dispathes rating 2*/ }

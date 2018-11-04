@@ -40,19 +40,19 @@ getFeedback = () => {
           <Route exact path="/" component={PageOne} />
         </Router>
         <Router>
-          <Route path="/2/topagetwo" component={PageTwo} />
+          <Route path="/2" component={PageTwo} />
         </Router>
         <Router>
-          <Route path="/3/topagethree" component={PageThree} />
+          <Route path="/3" component={PageThree} />
         </Router>
         <Router>
-          <Route path="/4/topagefour" component={PageFour} />
+          <Route path="/4" component={PageFour} />
         </Router>
         <Router>
-          <Route path="/5/topagefive" component={PageFive} />
+          <Route path="/5" component={PageFive} />
         </Router>
         <Router>
-          <Route path="/6/topageadmin" component={AdminPage} />
+          <Route path="/6" component={AdminPage} />
         </Router> 
         </div>
      </div>

@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 class AdminButton extends Component {
 
   goToNextPageSix = () => {
-    this.props.history.push('/6/topageadmin');
+    this.props.history.push('/6');
   }
 
   render() {
