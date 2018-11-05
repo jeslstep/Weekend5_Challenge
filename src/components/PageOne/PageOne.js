@@ -19,7 +19,7 @@ class PageOne extends Component {
 // Sets local state 
    handleChange = (event) => {
       this.setState({
-         [event.target.name]: event.target.value,
+         feeling: event.target.value,
       });
    }
 
@@ -27,7 +27,7 @@ class PageOne extends Component {
       event.preventDefault();
       console.log(this.state);
 // Dispatching to addFeedbackReducer
-      this.props.dispatch( { type: 'ADD_FEEDBACK', payload: this.state } )
+      this.props.dispatch( { type: 'ADD_FEELING_FEEDBACK', payload: this.state.feeling } )
 // Moves user to the next
       this.props.history.push('/2');
    }

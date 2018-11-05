@@ -32,7 +32,6 @@ getFeedback = () => {
   }
 
 
-
   render() {
     return (
       <div className="App">
@@ -48,7 +47,7 @@ getFeedback = () => {
           <Route path="/3" component={PageThree} />
         </Router>
         <Router>
-          <Route  path="/4" component={PageFour} />
+          <Route path="/4" component={PageFour} />
         </Router>
         <Router>
           <Route path="/5" component={PageFive} />

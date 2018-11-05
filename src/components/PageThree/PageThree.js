@@ -17,7 +17,7 @@ class PageTwo extends Component {
 // Sets local state 
    handleChange = (event) => {
       this.setState({
-         [event.target.name]: event.target.value,
+         support: event.target.value,
       });
    }
 
@@ -25,7 +25,7 @@ class PageTwo extends Component {
       event.preventDefault();
       console.log(this.state);
 // Dispatching to addFeedbackReducer
-      this.props.dispatch( { type: 'ADD__FEEDBACK', payload: this.state } )
+      this.props.dispatch( { type: 'ADD_SUPPORT_FEEDBACK', payload: this.state.support } )
 // Moves user to the next
       this.props.history.push('/4');
    }

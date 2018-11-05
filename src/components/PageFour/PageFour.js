@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {withRouter} from 'react-router-dom';
+import axios from 'axios';
 
 // declare object to hold comments feedback
 const emptyCommments = {
@@ -12,10 +12,35 @@ const emptyCommments = {
 
 class PageTwo extends Component {
 
+// Local state to store first feedback input
+  state = emptyCommments;
+
+// Sets local state 
+   handleChange = (event) => {
+      this.setState({
+         comments: event.target.value,
+      });
+   }
+
+   handleSubmit = (event) => {
+      event.preventDefault();
+      console.log(this.state);
+// Dispatching to addFeedbackReducer
+      this.props.dispatch( { type: 'ADD_COMMENTS_FEEDBACK', payload: this.state.comments } )
+// Uses the addFeedback post request function in App.js to send feedback to server
+      this.addFeedback();
+// Moves user to the next
+      this.props.history.push('/5');
+   }
+
   // POST request addFeedback sends feedback to server, called on PageFour
   addFeedback = (event) => {
-      let feedback = [...this.props.reduxState.addFeedbackReducer, this.state.feeling, 
-        this.state.understanding, this.state.support, this.state.comments]
+      let feedback = [
+        this.props.reduxState.addFeedbackReducer.feeling,
+        this.props.reduxState.addFeedbackReducer.understanding, 
+        this.props.reduxState.addFeedbackReducer.support, 
+        this.props.reduxState.addFeedbackReducer.comments
+      ]
      axios({
        method: 'POST',
        url: '/feedback',
@@ -26,27 +51,6 @@ class PageTwo extends Component {
      }).catch(error => {
        alert('Error', error);
      })
-   }
-
-// Local state to store first feedback input
-  state = emptyCommments;
-
-// Sets local state 
-   handleChange = (event) => {
-      this.setState({
-         [event.target.name]: event.target.value,
-      });
-   }
-
-   handleSubmit = (event) => {
-      event.preventDefault();
-      console.log(this.state);
-// Dispatching to addFeedbackReducer
-      this.props.dispatch( { type: 'ADD__Feedback', payload: this.state } )
-// uses the addFeedback post request function in App.js to send feedback to server
-      this.addFeedback();
-// Moves user to the next
-      this.props.history.push('/5');
    }
 
   render() {

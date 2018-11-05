@@ -16,14 +16,46 @@ const getFeedbackReducer = (state = [], action) => {
     return state;
 };
 
-// addFeedbackReducer adds and deletes 
-const addFeedbackReducer = (state = [], action) => {
-// recives and stores state from page components one-four via dispatch
-    if (action.type === 'ADD_FEEDBACK') {
+// set initial state 
+const defaultState = {
+    feeling: 0,
+    understanding: 0,
+    support: 0,
+    comments: ''
+};
+
+// addFeedbackReducer adds and deletes feedback
+const addFeedbackReducer = (state = defaultState, action) => {
+// recives and stores feeling state from page one via dispatch
+    if (action.type === 'ADD_FEELING_FEEDBACK') {
         console.log(`The feedback sumbitted was ${action.payload}`);
-         state = [...state, action.payload];
+        return{...state, 
+            feeling: action.payload,
+        };
+    } 
+// recives and stores understanding state from page two via dispatch
+    if (action.type === 'ADD_UNDERSTANDING_FEEDBACK') {
+        console.log(`The feedback sumbitted was ${action.payload}`);
+        return { ...state,
+            understanding: action.payload,
+        };
+    }
+// recives and stores support state from page three via dispatch
+    if (action.type === 'ADD_SUPPORT_FEEDBACK') {
+        console.log(`The feedback sumbitted was ${action.payload}`);
+        return { ...state,
+            support: action.payload,
+        };
+    }
+// recives and stores comments state from page four via dispatch
+    if (action.type === 'ADD_COMMENTS_FEEDBACK') {
+        console.log(`The feedback sumbitted was ${action.payload}`);
+        return { ...state,
+            comments: action.payload,
+        };
+    }
 // recives feedback to delete and removes it via dispatch
-    } else if ( action.type === 'DELETE_FEEDBACK' ) {
+    else if ( action.type === 'DELETE_FEEDBACK' ) {
     console.log('The feedback deleted was', state, action.payload);
     const feedbackToDelete = action.payload;
     const matchFeedback = feedback => feedback.idNumber !== feedbackToDelete.idNumber;
