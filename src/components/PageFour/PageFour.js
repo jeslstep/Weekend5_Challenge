@@ -7,7 +7,7 @@ import {withRouter} from 'react-router-dom';
 
 // declare object to hold comments feedback
 const emptyCommments = {
-  comments: '',
+  comments: ''
 };
 
 class PageTwo extends Component {

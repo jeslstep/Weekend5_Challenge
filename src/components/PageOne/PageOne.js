@@ -7,7 +7,7 @@ import {withRouter} from 'react-router-dom';
 
 // declare object to hold feeling feedback
 const emptyFeeling= {
-    feeling: '',
+    feeling: ''
 };
 
 

@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 
 // declare object to hold understanding feedback
 const emptyUnderstanding = {
-    understanding: '',
+    understanding: ''
 };
 
 class PageTwo extends Component {

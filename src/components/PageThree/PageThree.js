@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 
 // declare object to hold support feedback
 const emptySupport = {
-    support: '',
+    support: ''
 };
 
 class PageTwo extends Component {
