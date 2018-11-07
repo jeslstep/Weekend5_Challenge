@@ -37,12 +37,12 @@ router.post('/', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
     let reqId = req.params.id;
     console.log('Delete request for id', reqId);
-    let sqlText = `DELETE FROM pictures WHERE id=$1;`;
+    let sqlText = `DELETE FROM feedback WHERE id=$1`;
     console.log(sqlText);
 
     pool.query(sqlText, [reqId])
         .then((result) => {
-            console.log('picture deleted');
+            console.log('feedback deleted');
             res.sendStatus(200);
         })
         .catch((error) => {

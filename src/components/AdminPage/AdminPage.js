@@ -7,12 +7,12 @@ import axios from 'axios';
 class AdminPage extends Component {
 
 // deleteFeeback deletes feedback by feedback id
- deleteFeedback = (feedbackId) => {
+ deleteFeedback = (Id) => {
    axios({
      method: 'DELETE',
-     url: `feedback/delete/${feedbackId}`
+     url: `feedback/delete/${Id}`
    }).then(() => {
-     console.log('feedbackId', feedbackId);
+     console.log('feedbackId', Id);
      
    }).catch(error => {
      alert('Like delete error:', error);
@@ -25,7 +25,7 @@ class AdminPage extends Component {
           <h1>Admin Page</h1>
    {/* looping through the feedback from redux */}
         {this.props.reduxState.getFeedbackReducer.map( feedback => (
-            <div id="card" key={feedback.id}>
+            <div id="card">
 { /* displaying in table */ }
             <table>
                 <thead>
@@ -36,12 +36,12 @@ class AdminPage extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr key ={feedback.id}>
                     <td>{feedback.id}</td><td>{feedback.feeling}</td><td>{feedback.understanding}</td>
                     <td>{feedback.support}</td><td>{feedback.comments}</td><td>{feedback.flagged}</td>
                     <td>{feedback.date}</td>
 { /* button to delete corresponding table row*/ }
-                    <td><button onClick={(event) => this.deleteFeedback(this.feedback.id)}>Delete</button></td>
+                    <td><button onClick={(event) => this.deleteFeedback(feedback.id)}>Delete</button></td>
                     </tr>
                 </tbody>
             </table>        
