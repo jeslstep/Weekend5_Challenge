@@ -18,7 +18,8 @@ class PageTwo extends Component {
    handleChange = (event) => {
       this.setState({
          understanding: event.target.value,
-      });
+      }); 
+    console.log(this.state);
    }
 
    handleSubmit = (event) => {

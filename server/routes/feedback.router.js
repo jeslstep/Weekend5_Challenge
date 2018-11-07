@@ -33,4 +33,21 @@ router.post('/', (req, res) => {
         })
 })
 
+// DELETE
+router.delete('/delete/:id', (req, res) => {
+    let reqId = req.params.id;
+    console.log('Delete request for id', reqId);
+    let sqlText = `DELETE FROM pictures WHERE id=$1;`;
+    console.log(sqlText);
+
+    pool.query(sqlText, [reqId])
+        .then((result) => {
+            console.log('picture deleted');
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`Error in deleting ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+})
 module.exports = router;

@@ -6,7 +6,8 @@ class PageFive extends Component {
 
 // moves user back to the first page to complete the process again
    handleChange = (event) => {
-      this.props.history.push('/');
+    this.props.dispatch( {type: 'RESET'} );
+    this.props.history.push('/');
    }
 
   render() {

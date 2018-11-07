@@ -16,7 +16,7 @@ const getFeedbackReducer = (state = [], action) => {
     return state;
 };
 
-// set initial state 
+// set initial state (defaultState) 
 const defaultState = {
     feeling: 0,
     understanding: 0,
@@ -60,6 +60,10 @@ const addFeedbackReducer = (state = defaultState, action) => {
     const feedbackToDelete = action.payload;
     const matchFeedback = feedback => feedback.idNumber !== feedbackToDelete.idNumber;
     state = state.filter(matchFeedback);
+  }
+// resets state to defaultState
+  if( action.type === 'RESET') {
+      return defaultState;
   }
     return state;
 };

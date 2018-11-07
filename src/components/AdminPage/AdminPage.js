@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 
 
 class AdminPage extends Component {
 
+// deleteFeeback deletes feedback by feedback id
+ deleteFeedback = (feedbackId) => {
+   axios({
+     method: 'DELETE',
+     url: `feedback/delete/${feedbackId}`
+   }).then(() => {
+     console.log('feedbackId', feedbackId);
+     
+   }).catch(error => {
+     alert('Like delete error:', error);
+   });
+ }
 
   render() {
     return (
@@ -28,9 +41,7 @@ class AdminPage extends Component {
                     <td>{feedback.support}</td><td>{feedback.comments}</td><td>{feedback.flagged}</td>
                     <td>{feedback.date}</td>
 { /* button to delete corresponding table row*/ }
-                    <td><button onClick={() => {this.props.dispatch( 
-                      { type: 'DELETE_FEEDBACK', payload: feedback.id} )} 
-                      }>Delete</button></td>
+                    <td><button onClick={(event) => this.deleteFeedback(this.feedback.id)}>Delete</button></td>
                     </tr>
                 </tbody>
             </table>        
